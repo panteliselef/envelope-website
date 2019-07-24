@@ -1,0 +1,13 @@
+body {
+  background-color: #E3DFDC;
+  top: 0;
+  left: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  font-family: 'Lato';
+  box-sizing: border-box;
+}
+body * {
+  box-sizing: border-box;
+}
