@@ -18,12 +18,15 @@ const IndexPage = () => {
 		padding: 2rem 0;
     height: 100vh;
     max-height: 100vh;
+		background-color: #E3DFDC;
 	`;
 
 	const TextContainer = styled.div`
 		max-width: 650px;
 		text-align: center;
     font-size: 1.5rem;
+    padding: 0 1rem;
+    line-height: 1.4;
   `;
   
 
@@ -46,7 +49,7 @@ const IndexPage = () => {
 				<p style={{fontWeight:'300'}}>Looks like nobody is home!</p>
 				<p style={{fontWeight:'500',color:'#000'}}>Our website is under construction, please check back later</p>
 			</TextContainer>
-      <img src={illustration} style={{width: 'auto', height: 'calc(100vh - 30%)', objectFit:'contain',flexGrow: 1}} />
+      <img src={illustration} style={{maxWidth:'100vw',width: 'auto', height: 'calc(100vh - 30%)', objectFit:'contain',objectPosition:'center'}} />
 		</Container>
 	);
 };

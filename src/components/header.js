@@ -1,42 +1,46 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react';
+import styled from 'styled-components';
+import '../styles/index.css';
+import darkLogo from '../images/envelope-logo-black.svg';
+import {OutlinedButton} from '../components/myStyledComponents';
+const Header = () => {
+  const Header = styled.header`
+    z-index: 99;
+    position:absolute;
+		max-width: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+    padding: 2rem 2rem;
+    align-items: center;
+  `;
+  
+  // const MenuList = styled.ul`
+  //   display: flex;
+  //   flex-direction: row;
+	// 	justify-content: flex-start;
+  //   list-style: none;
+  // `;
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+  // const MenuItem = styled.li`
+  //   padding:1rem 2rem;
+  // `;
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+	return (
+		<Header>
+			<div style={{display:'flex'}}>
+				<img src={darkLogo} style={{height:'1.7rem'}}/>
+        {/* <MenuList>
+          <MenuItem>Some</MenuItem>
+          <MenuItem>Some</MenuItem>
+          <MenuItem>Some</MenuItem>
+          <MenuItem>Some</MenuItem>
+        </MenuList> */}
+			</div>
+      <OutlinedButton style={{color:'#333'}}>Create a project</OutlinedButton>
+		</Header>
+	);
+};
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Header;

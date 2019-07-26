@@ -1,5 +1,5 @@
 body {
-  background-color: #E3DFDC;
+  background-color: #fff;
   top: 0;
   left: 0;
   margin: 0;
@@ -10,4 +10,5 @@ body {
 }
 body * {
   box-sizing: border-box;
+  font-family: 'Lato';
 }
