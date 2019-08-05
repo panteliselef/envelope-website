@@ -3,7 +3,8 @@ import illustration from '../images/comming-soon-illustration.svg';
 import logo from '../images/envelope-logo.svg';
 import styled from 'styled-components';
 import '../styles/index.css';
-// import { Link } from "gatsby"
+import { OutlinedButton } from '../components/myStyledComponents';
+import { Link } from 'gatsby';
 
 // import Layout from "../components/layout"
 // import Image from "../components/image"
@@ -16,19 +17,18 @@ const IndexPage = () => {
 		flex-direction: column;
 		width: 100%;
 		padding: 2rem 0;
-    height: 100vh;
-    max-height: 100vh;
-		background-color: #E3DFDC;
+		height: 100vh;
+		max-height: 100vh;
+		background-color: #e3dfdc;
 	`;
 
 	const TextContainer = styled.div`
 		max-width: 650px;
 		text-align: center;
-    font-size: 1.5rem;
-    padding: 0 1rem;
-    line-height: 1.4;
-  `;
-  
+		font-size: 1.5rem;
+		padding: 0 1rem;
+		line-height: 1.4;
+	`;
 
 	// <Layout>
 	//   <SEO title="Home" />
@@ -46,10 +46,27 @@ const IndexPage = () => {
 			<img src={logo} style={{ width: '100%', height: '2rem' }} />
 
 			<TextContainer>
-				<p style={{fontWeight:'300'}}>Looks like nobody is home!</p>
-				<p style={{fontWeight:'500',color:'#000'}}>Our website is under construction, please check back later</p>
+				<p style={{ fontWeight: '300' }}>Looks like nobody is home!</p>
+				<p style={{ fontWeight: '500', color: '#000' }}>
+					Our website is under construction, please check back later
+				</p>
 			</TextContainer>
-      <img src={illustration} style={{maxWidth:'100vw',width: 'auto', height: 'calc(100vh - 30%)', objectFit:'contain',objectPosition:'center'}} />
+			<Link to="/landing-page">
+				<OutlinedButton style={{
+					fontSize:'.8rem',
+					padding:'.8rem 2rem'
+				}}>Preview Landing Page</OutlinedButton>
+			</Link>
+			<img
+				src={illustration}
+				style={{
+					maxWidth: '100vw',
+					width: 'auto',
+					height: 'calc(100vh - 30%)',
+					objectFit: 'contain',
+					objectPosition: 'center'
+				}}
+			/>
 		</Container>
 	);
 };

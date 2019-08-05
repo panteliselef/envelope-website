@@ -5,6 +5,8 @@ import '../styles/index.css';
 import Img from 'gatsby-image';
 import { PageTitle, PageSubTitle } from './myStyledComponents';
 import Header from './header';
+// import bgImage from '../images/mainBg-compressed.jpg';
+import bgImage from '../images/mainBg-comp.jpg';
 
 const TopSectionFullHeight = () => {
 	const TopSectionContainer = styled.div`
@@ -14,29 +16,34 @@ const TopSectionFullHeight = () => {
 		min-height: 500px;
 	`;
 
-	const data = useStaticQuery(
-		graphql`
-			query {
-				main: file(relativePath: { eq: "mainBg.jpg" }) {
-					childImageSharp {
-						fluid(maxWidth: 1800, quality: 100) {
-							...GatsbyImageSharpFluid_noBase64
-						}
-					}
-				}
-			}
-		`
-	);
+	// const data = useStaticQuery(
+	// 	graphql`
+	// 		query {
+	// 			main: file(relativePath: { eq: "mainBg.jpg" }) {
+	// 				childImageSharp {
+	// 					fluid(maxWidth: 1800, quality: 100) {
+	// 						...GatsbyImageSharpFluid_noBase64
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 	`
+	// );
 
 	return (
 		<React.Fragment>
 			<TopSectionContainer>
 				<Header />
-				<Img
+				{/* <Img
 					fluid={data.main.childImageSharp.fluid}
 					imgStyle={{ objectPosition: 'center center', objectFit: 'cover' }}
 					style={{ height: '100%', zIndex: '-2', position: 'absolute', width: '100%', top: '0' }}
-				/>
+				/> */}
+				<img src={bgImage} style={{
+					height: '100%', zIndex: '-2', position: 'absolute', width: '100%', top: '0',objectPosition: 'center center', objectFit: 'cover' 
+				}}>
+
+				</img>
 				<div
 					style={{
 						height: '100vh',

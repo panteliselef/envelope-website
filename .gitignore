@@ -1,5 +1,7 @@
-*.ogv
-*.mp4
+# *.ogv
+# *.mp4
+
+
 # Logs
 logs
 *.log

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import '../styles/index.css';
 import TopSectionFullHeight from '../components/top-section-full-height';
@@ -18,9 +18,28 @@ import coldwell from '../images/coldwell-logo.svg';
 import remax from '../images/remax-logo.svg';
 import keller from '../images/keller-williams-logo.svg';
 import Footer from '../components/footer';
-
+import Test from './test';
+import bgImage from '../images/mainBg-comp.jpg';
 
 const LandingPage = () => {
+	useEffect(() => {
+		window.onscroll = () => {
+			let sectionOffset = document.getElementById('important').offsetTop;
+			let s = window.pageYOffset;
+			let section = document.getElementById('important');
+			if (sectionOffset < s && s < sectionOffset + section.clientHeight) {
+				let num = s - sectionOffset;
+				// console.log(num)
+				let percentage = num / 200;
+				if (percentage <= 2) {
+					console.log(num / 200);
+					const figure = document.querySelector('figure');
+					figure.style.setProperty('--my-val', percentage);
+				}
+			}
+			// console.log("S",s,"Section",section.clientHeight)
+		};
+	}, []);
 	const EvelopeFeature = styled.div`
 		display: flex;
 		width: 100%;
@@ -47,7 +66,7 @@ const LandingPage = () => {
 
 	const EvelopeFeatureImage = styled.img`
 		width: 100%;
-		max-width: 250px;
+		max-width: 300px;
 		height: 100%;
 	`;
 
@@ -55,8 +74,8 @@ const LandingPage = () => {
 		background: #333;
 		color: #fff;
 		flex: 1 0 auto;
-		margin: .5em;
 		position: relative;
+		margin: .5rem 0;
 		width: 300px;
 		border-radius: .8rem;
 		max-height: 200px;
@@ -79,7 +98,7 @@ const LandingPage = () => {
 							flexDirection: 'column',
 							alignItems: 'center',
 							width: '100%',
-							maxWidth: '700px'
+							maxWidth: '900px'
 						}}
 					>
 						<EvelopeFeature>
@@ -138,7 +157,7 @@ const LandingPage = () => {
 							width: '90%',
 							maxWidth: '1280px',
 							display: 'flex',
-							margin: '0 auto',
+							margin: '0 auto'
 						}}
 					>
 						<div
@@ -213,6 +232,34 @@ const LandingPage = () => {
 					</div>
 				</SectionContainer>
 			</Section>
+
+			{/* <Test /> */}
+
+			<section
+				id="important"
+				style={{
+					height: 'calc(4 * 100vh)',
+					width: '100%'
+				}}
+			>
+				<figure>
+					<img src={bgImage} />
+				</figure>
+				<div className="content">
+					<header className="header">
+						<div className="subheading">All-Old Techniques</div>
+						<h2 className="heading">
+							Not Evolved,<br />not transformed either.
+						</h2>
+					</header>
+					<p className="paragraph">
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum nisi illum rem recusandae.
+						Tempore consequuntur nihil cumque quis nam deserunt earum atque et ullam facere accusamus cum
+						natus, autem numquam.
+					</p>
+				</div>
+			</section>
+
 			<Section style={{ background: 'rgb(20,22,25)', color: '#fff' }}>
 				<SectionContainer>
 					<SectionTitle style={{ color: '#fff' }}>Real Estate Agents meet video</SectionTitle>
@@ -237,6 +284,7 @@ const LandingPage = () => {
 							}}
 							controls
 							poster={videoPoster}
+							preload="metadata"
 						>
 							<source src={videoOgv} type="video/ogg" />
 							<source src={videoMp4} type="video/mp4" />
@@ -286,7 +334,8 @@ const LandingPage = () => {
 									width: '100%',
 									maxWidth: '700px',
 									height: '700px',
-									overflow: 'scroll',
+									overflowY: 'scroll',
+
 									display: 'grid',
 									gridTemplateColumns: '300px 300px',
 									justifyContent: 'flex-start',
@@ -337,27 +386,27 @@ const LandingPage = () => {
 						style={{
 							color: '#adadad',
 							fontSize: '1.4rem',
-              margin:'4rem 0'
+							margin: '4rem 0'
 						}}
 					>
 						Evelope is used by 35+ real esate agents and loan officers
 					</span>
-
-          <div style={{
-            display:'flex',
-            justifyContent:'space-evenly',
-            width:'100%',
-            maxWidth:'800px'
-          }}>
-            <img src={sothebys}></img>
-            <img src={coldwell}></img>
-            <img src={remax}></img>
-            <img src={keller}></img>
-          </div>
-
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'space-evenly',
+							width: '100%',
+							maxWidth: '800px'
+						}}
+					>
+						<img src={sothebys} />
+						<img src={coldwell} />
+						<img src={remax} />
+						<img src={keller} />
+					</div>
 				</SectionContainer>
 			</Section>
-      <Footer/>
+			<Footer />
 			{/* <div style={{ height: '100vh' }} /> */}
 		</React.Fragment>
 	);
