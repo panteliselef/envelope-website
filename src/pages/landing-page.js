@@ -18,27 +18,28 @@ import coldwell from '../images/coldwell-logo.svg';
 import remax from '../images/remax-logo.svg';
 import keller from '../images/keller-williams-logo.svg';
 import Footer from '../components/footer';
-import Test from './test';
 import bgImage from '../images/mainBg-comp.jpg';
 
 const LandingPage = () => {
 	useEffect(() => {
-		window.onscroll = () => {
-			let sectionOffset = document.getElementById('important').offsetTop;
-			let s = window.pageYOffset;
-			let section = document.getElementById('important');
-			if (sectionOffset < s && s < sectionOffset + section.clientHeight) {
-				let num = s - sectionOffset;
-				// console.log(num)
-				let percentage = num / 200;
-				if (percentage <= 2) {
-					console.log(num / 200);
+
+		if (typeof window !== `undefined`) {
+ 
+			window.onscroll = () => {
+				let sectionOffset = document.getElementById('important').offsetTop;
+				let s = window.pageYOffset;
+				let section = document.getElementById('important');
+				let figureWidth = section.children[0].getBoundingClientRect().width;
+				if (sectionOffset < s && s < sectionOffset + section.clientHeight) {
+
+					let num = s - sectionOffset;
+					let percentage = num / section.clientWidth;
 					const figure = document.querySelector('figure');
-					figure.style.setProperty('--my-val', percentage);
+					figure.style.setProperty('--my-val', percentage<=1?percentage:1);
 				}
-			}
-			// console.log("S",s,"Section",section.clientHeight)
-		};
+			};
+
+}
 	}, []);
 	const EvelopeFeature = styled.div`
 		display: flex;
@@ -233,7 +234,7 @@ const LandingPage = () => {
 				</SectionContainer>
 			</Section>
 
-			{/* <Test /> */}
+			
 
 			<section
 				id="important"

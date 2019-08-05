@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import ScrollOut from 'scroll-out';
 import '../styles/test.css';
 import website from '../images/website.png';
 import chromeWeb from '../images/chrome-website.jpg';
@@ -8,31 +7,31 @@ import chromeWeb from '../images/chrome-website.jpg';
 // import chrome from '../images/chrome.png';
 import chrome from '../images/chrome.svg';
 const Test = () => {
-	useEffect(() => {
-		ScrollOut({
-			cssProps: {
-				viewportY: true,
-				visibleY: true,
-			},
+	// useEffect(() => {
+	// 	ScrollOut({
+	// 		cssProps: {
+	// 			viewportY: true,
+	// 			visibleY: true,
+	// 		},
 
-			onShown: function(element, ctx, scrollingElement) {
-				/* Triggered when an element is shown */
-				console.log('On Shown', ctx);
-			},
-			onHidden: function(element, ctx, scrollingElement) {
-				/* Triggered when an element is hidden */
-				console.log('On Hidden', ctx);
-			},
-			onChange: function(element, ctx, scrollingElement) {
-				/* Triggered when an element changes visibility */
-				console.log('On Change', ctx);
-			}
-		});
-	}, []);
+	// 		onShown: function(element, ctx, scrollingElement) {
+	// 			/* Triggered when an element is shown */
+	// 			console.log('On Shown', ctx);
+	// 		},
+	// 		onHidden: function(element, ctx, scrollingElement) {
+	// 			/* Triggered when an element is hidden */
+	// 			console.log('On Hidden', ctx);
+	// 		},
+	// 		onChange: function(element, ctx, scrollingElement) {
+	// 			/* Triggered when an element changes visibility */
+	// 			console.log('On Change', ctx);
+	// 		}
+	// 	});
+	// }, []);
 
 	return (
 		<React.Fragment>
-			<section className="intro-section">
+			{/* <section className="intro-section">
 				<h1 className="intro-heading"> Watch</h1>
 
 				<p>The latest in time-telling technology.</p>
@@ -113,7 +112,7 @@ const Test = () => {
 						natus, autem numquam.
 					</p>
 				</div>
-			</section>
+			</section> */}
 		</React.Fragment>
 	);
 };

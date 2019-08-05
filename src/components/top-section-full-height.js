@@ -16,19 +16,19 @@ const TopSectionFullHeight = () => {
 		min-height: 500px;
 	`;
 
-	// const data = useStaticQuery(
-	// 	graphql`
-	// 		query {
-	// 			main: file(relativePath: { eq: "mainBg.jpg" }) {
-	// 				childImageSharp {
-	// 					fluid(maxWidth: 1800, quality: 100) {
-	// 						...GatsbyImageSharpFluid_noBase64
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	`
-	// );
+	const data = useStaticQuery(
+		graphql`
+			query {
+				main: file(relativePath: { eq: "mainBg.jpg" }) {
+					childImageSharp {
+						fluid(maxWidth: 1000, maxHeight: 1000, quality: 100) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
+			}
+		`
+	);
 
 	return (
 		<React.Fragment>
@@ -36,14 +36,22 @@ const TopSectionFullHeight = () => {
 				<Header />
 				{/* <Img
 					fluid={data.main.childImageSharp.fluid}
-					imgStyle={{ objectPosition: 'center center', objectFit: 'cover' }}
-					style={{ height: '100%', zIndex: '-2', position: 'absolute', width: '100%', top: '0' }}
+					imgStyle={{ objectPosition: 'center center', objectFit: 'cover',height:'100%', width:'100%' }}
+					style={{ height: '50%', zIndex: '-2', position: 'absolute', width: '50%', top: '0' }}
 				/> */}
-				<img src={bgImage} style={{
-					height: '100%', zIndex: '-2', position: 'absolute', width: '100%', top: '0',objectPosition: 'center center', objectFit: 'cover' 
-				}}>
+				<img
+					src={bgImage}
+					style={{
+						height: '100%',
+						zIndex: '-2',
+						position: 'absolute',
+						width: '100%',
+						top: '0',
+						objectPosition: 'center center',
+						objectFit: 'cover'
+					}}
+				/>
 
-				</img>
 				<div
 					style={{
 						height: '100vh',
