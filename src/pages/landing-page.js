@@ -19,28 +19,31 @@ import remax from '../images/remax-logo.svg';
 import keller from '../images/keller-williams-logo.svg';
 import Footer from '../components/footer';
 import bgImage from '../images/mainBg-comp.jpg';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import AnimatedSection from '../components/AnimatedSection';
 
+import iphoneMockup from '../images/iphone.svg';
+import pen from '../images/pen.svg';
+import files from '../images/files.svg';
+import alphabet from '../images/alphabet.svg';
+import patternPalette from '../images/pattern-palette.svg';
+import TweetCard from '../components/TweetCard';
 const LandingPage = () => {
-	useEffect(() => {
-
-		if (typeof window !== `undefined`) {
- 
-			window.onscroll = () => {
-				let sectionOffset = document.getElementById('important').offsetTop;
-				let s = window.pageYOffset;
-				let section = document.getElementById('important');
-				let figureWidth = section.children[0].getBoundingClientRect().width;
-				if (sectionOffset < s && s < sectionOffset + section.clientHeight) {
-
-					let num = s - sectionOffset;
-					let percentage = num / section.clientWidth;
-					const figure = document.querySelector('figure');
-					figure.style.setProperty('--my-val', percentage<=1?percentage:1);
+	const data = useStaticQuery(
+		graphql`
+			query {
+				main: file(relativePath: { eq: "mainBg.jpg" }) {
+					childImageSharp {
+						fluid(maxWidth: 1000, maxHeight: 1000, quality: 100) {
+							...GatsbyImageSharpFluid
+						}
+					}
 				}
-			};
+			}
+		`
+	);
 
-}
-	}, []);
 	const EvelopeFeature = styled.div`
 		display: flex;
 		width: 100%;
@@ -81,6 +84,48 @@ const LandingPage = () => {
 		border-radius: .8rem;
 		max-height: 200px;
 		display: inline-block;
+	`;
+
+	const RoundedBox = styled.div`
+		width: 100%;
+		height: 100%;
+		position: relative;
+		background-color: #0a2132;
+		display: flex;
+		border-radius: 1rem;
+		align-items: center;
+		justify-content: center;
+	`;
+
+	const RoundedBoxTitle = styled.div`
+		color: ${(props) => props.color || `#fff`};
+		width: 100%;
+		height: auto;
+		top: -30px;
+		position: absolute;
+		text-align: center;
+		text-transform: capitalize;
+		left: 0;
+		font-weight: 600;
+		letter-spacing: .5px;
+	`;
+
+	// DUPLICATE
+	const Heading = styled.h2`
+		font-size: 3.3rem;
+		margin: 0;
+		background: linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		line-height: 1.2;
+	`;
+
+	const SubHeading = styled.div`
+		font-size: 1.1rem;
+		font-weight: 600;
+		margin-bottom: 0.5em;
+		letter-spacing: 1px;
+		color: #ccc;
 	`;
 	return (
 		<React.Fragment>
@@ -234,32 +279,151 @@ const LandingPage = () => {
 				</SectionContainer>
 			</Section>
 
-			
+			<AnimatedSection />
 
-			<section
-				id="important"
-				style={{
-					height: 'calc(4 * 100vh)',
-					width: '100%'
-				}}
-			>
-				<figure>
-					<img src={bgImage} />
-				</figure>
-				<div className="content">
-					<header className="header">
-						<div className="subheading">All-Old Techniques</div>
-						<h2 className="heading">
-							Not Evolved,<br />not transformed either.
-						</h2>
-					</header>
-					<p className="paragraph">
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum nisi illum rem recusandae.
-						Tempore consequuntur nihil cumque quis nam deserunt earum atque et ullam facere accusamus cum
-						natus, autem numquam.
-					</p>
-				</div>
-			</section>
+			<Section style={{ background: 'rgb(20,22,25)', color: '#fff' }}>
+				<SectionContainer>
+					<div
+						style={{
+							width: '100%',
+							maxWidth: '1280px',
+							display: 'flex',
+							justifyContent: 'space-around',
+							flexDirection: 'row',
+							margin: '0 auto',
+							width: '90%'
+						}}
+					>
+						<div
+							style={{
+								maxWidth: '400px'
+							}}
+						>
+							<img
+								src={iphoneMockup}
+								style={{
+									width: '100%'
+								}}
+							/>
+						</div>
+
+						<div
+							style={{
+								margin: '0 3rem',
+								justifyContent: 'center',
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'flex-start'
+							}}
+						>
+							<SubHeading>Look amazing on the device</SubHeading>
+							<Heading style={{ maxWidth: '700px' }}>
+								Ave automatically detects the screen size and adjust the content accordingly to provide
+								full responsive and optimized sites
+							</Heading>
+						</div>
+					</div>
+				</SectionContainer>
+			</Section>
+
+			<Section style={{ backgroundColor: 'rgb(20,22,25)' }}>
+				<SectionContainer>
+					<div
+						style={{
+							display: 'flex',
+							width: '90%',
+							maxWidth: '1280px',
+							justifyContent: 'space-between',
+							alignItems: 'center'
+						}}
+					>
+						<div>
+							<SectionTitle style={{ color: '#fff', textAlign: 'left', margin: '0' }}>
+								The simplest way to have a professioanal property video.
+							</SectionTitle>
+							<SectionSubtitle style={{ color: '#fff', textAlign: 'left' }}>
+								Get all the benefits of an in-wall or in-ceiling speaker system without any of the
+								hassle. Just replace a few lights around your house, and start streaming crisp, clear
+								audio, everywhere.
+							</SectionSubtitle>
+						</div>
+
+						<div
+							style={{
+								overflow: '',
+								marginRight: '100px',
+								position: 'relative'
+							}}
+						>
+							<div
+								style={{
+									display: 'grid',
+									gridTemplateColumns: '1fr 1fr',
+									gridTemplateRows: '200px 200px',
+									gridGap: '3.5rem 2rem',
+									width: '400px',
+									height: 'auto',
+									transform: 'rotate(-35deg)'
+								}}
+							>
+								<RoundedBox>
+									<RoundedBoxTitle color={`#E25AA3`}>Amazing desing</RoundedBoxTitle>
+									<img
+										src={pen}
+										style={{
+											transform: 'rotate(35deg)'
+										}}
+									/>
+								</RoundedBox>
+
+								<RoundedBox
+									style={{
+										width: '80%',
+										height: '80%',
+										justifySelf: 'flex-start',
+										alignSelf: 'flex-end'
+									}}
+								>
+									<RoundedBoxTitle color={`#A166C5`}>Customized Logo</RoundedBoxTitle>
+									<img
+										src={alphabet}
+										style={{
+											width: '50%',
+											transform: 'rotate(35deg)'
+										}}
+									/>
+								</RoundedBox>
+
+								<RoundedBox
+									style={{
+										width: '80%',
+										height: '80%',
+										justifySelf: 'flex-end'
+									}}
+								>
+									<RoundedBoxTitle color={`#4352A2`}>Personalized</RoundedBoxTitle>
+									<img
+										src={patternPalette}
+										style={{
+											width: '50%',
+											transform: 'rotate(35deg)'
+										}}
+									/>
+								</RoundedBox>
+								<RoundedBox>
+									<RoundedBoxTitle color={`#736EDE`}>Well Organised</RoundedBoxTitle>
+									<img
+										src={files}
+										style={{
+											transform: 'rotate(35deg)'
+										}}
+									/>
+								</RoundedBox>
+							</div>
+						</div>
+					</div>
+				</SectionContainer>
+			</Section>
 
 			<Section style={{ background: 'rgb(20,22,25)', color: '#fff' }}>
 				<SectionContainer>
@@ -331,14 +495,14 @@ const LandingPage = () => {
 							/>
 							<div
 								style={{
+									padding: '1rem 0',
 									margin: '0 auto',
 									width: '100%',
-									maxWidth: '700px',
+									maxWidth: '800px',
 									height: '700px',
 									overflowY: 'scroll',
-
 									display: 'grid',
-									gridTemplateColumns: '300px 300px',
+									gridTemplateColumns: '1fr 1fr',
 									justifyContent: 'flex-start',
 									alignItems: 'flex-start',
 									gridGap: '1rem',
@@ -346,6 +510,9 @@ const LandingPage = () => {
 								}}
 							>
 								<div style={{ display: 'flex', flexDirection: 'column' }}>
+									<TweetCard
+										tweet={`ShowTrackr is a real gem! I started using it a couple months ago and it completely changed the way how I watch TV shows. I can only recommend it!`}
+									/>
 									<GridItem style={{ height: '100px' }} />
 									<GridItem style={{ height: '120px' }} />
 									<GridItem style={{ height: '150px' }} />
@@ -382,7 +549,27 @@ const LandingPage = () => {
 						If you can use common elements to create the required design and save valuable time for more
 						important tasks, then why not do it?
 					</SectionSubtitle>
-					Email form goes here
+					<a
+						href="mailto:"
+						style={{
+							backgroundColor: '#4A35FF',
+							borderRadius: '10rem',
+							padding: '1.5rem 1rem',
+							width: '100%',
+							maxWidth: '200px',
+							textAlign: 'center',
+							fontSize: '1rem',
+							fontWeight: '600',
+							letterSpacing: '.5px',
+							margin: '2rem 0',
+							color: '#fff',
+							textDecoration: 'none',
+							textTransform:'uppercase'
+						}}
+					>
+						Contact us
+					</a>
+
 					<span
 						style={{
 							color: '#adadad',
@@ -396,14 +583,15 @@ const LandingPage = () => {
 						style={{
 							display: 'flex',
 							justifyContent: 'space-evenly',
+							flexWrap:'wrap',
 							width: '100%',
 							maxWidth: '800px'
 						}}
 					>
-						<img src={sothebys} />
-						<img src={coldwell} />
-						<img src={remax} />
-						<img src={keller} />
+						<img src={sothebys} style={{margin:'1rem'}} />
+						<img src={coldwell} style={{margin:'1rem'}}/>
+						<img src={remax} style={{margin:'1rem'}}/>
+						<img src={keller} style={{margin:'1rem'}}/>
 					</div>
 				</SectionContainer>
 			</Section>

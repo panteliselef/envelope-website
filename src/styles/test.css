@@ -17,6 +17,7 @@
 	--scroll-length: 1.5;
 	height: calc(var(--scroll-length) * 100vh);
 	width: 100%;
+	
 	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 .content-section .content .subheading,
@@ -41,7 +42,7 @@
 	object-position: top center;
 }
 .content {
-	position: absolute;
+	/* position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -51,9 +52,9 @@
 	grid-template-rows: 1fr 1fr;
 	color: white;
 	padding: 2em;
-	font-size: 2.5vmin;
+	font-size: 2.5vmin; */
 }
-.content * {
+/* .content * {
 	text-shadow: 0 0 4vmin rgba(0, 0, 0, 0.25);
 }
 .content > .header {
@@ -61,8 +62,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-}
-.content > .paragraph {
+} */
+/* .content > .paragraph {
 	grid-row: 0.6666666667;
 	line-height: 1.5;
 }
@@ -74,7 +75,7 @@
 	font-size: 1.25em;
 	font-weight: 600;
 	margin-bottom: 0.5em;
-}
+} */
 
 /* MY CODE*/
 #chrome {
@@ -143,8 +144,8 @@
 *,
 *:before,
 *:after {
-	position: relative;
-	box-sizing: border-box;
+	/* position: relative; */
+	/* box-sizing: border-box; */
 }
 .heading,
 .intro-heading {

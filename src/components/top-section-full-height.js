@@ -19,10 +19,10 @@ const TopSectionFullHeight = () => {
 	const data = useStaticQuery(
 		graphql`
 			query {
-				main: file(relativePath: { eq: "mainBg.jpg" }) {
+				main: file(relativePath: { eq: "mainBg-comp.jpg" }) {
 					childImageSharp {
-						fluid(maxWidth: 1000, maxHeight: 1000, quality: 100) {
-							...GatsbyImageSharpFluid
+						fluid(maxWidth: 1800, quality: 100) {
+							...GatsbyImageSharpFluid_tracedSVG
 						}
 					}
 				}
@@ -34,12 +34,12 @@ const TopSectionFullHeight = () => {
 		<React.Fragment>
 			<TopSectionContainer>
 				<Header />
-				{/* <Img
+				<Img
 					fluid={data.main.childImageSharp.fluid}
-					imgStyle={{ objectPosition: 'center center', objectFit: 'cover',height:'100%', width:'100%' }}
-					style={{ height: '50%', zIndex: '-2', position: 'absolute', width: '50%', top: '0' }}
-				/> */}
-				<img
+					imgStyle={{ objectPosition: 'center center', objectFit: 'cover'}}
+					style={{ height: '100%', zIndex: '-2', position: 'absolute', width: '100%', top: '0' }}
+				/>
+				{/* <img
 					src={bgImage}
 					style={{
 						height: '100%',
@@ -50,7 +50,7 @@ const TopSectionFullHeight = () => {
 						objectPosition: 'center center',
 						objectFit: 'cover'
 					}}
-				/>
+				/> */}
 
 				<div
 					style={{

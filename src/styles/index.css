@@ -1,5 +1,4 @@
 :root {
-  /* :root is a clever way of saying "the outer-most element" */ 
   --my-val: 0;
 }
 body {
@@ -54,7 +53,6 @@ figure:before {
 	width: 100%;
 	height: 100%;
 	z-index: 1;
-	/* background-color: rgba(0, 0, 0, 1); */
 	opacity: calc(var(--visible-y));
 }
 figure > img {
@@ -69,7 +67,6 @@ figure > img {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	max-width: 35em;
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	color: white;
@@ -79,22 +76,44 @@ figure > img {
 .content * {
 	text-shadow: 0 0 4vmin rgba(0, 0, 0, 0.25);
 }
-.content > .header {
-	grid-row: 0.5;
+.header {
+
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
+	justify-content: center;
+	align-items: flex-start;
 }
 .content > .paragraph {
 	grid-row: 0.6666666667;
 	line-height: 1.5;
 }
-.heading {
+/* .heading {
 	font-size: 2.75em;
 	margin: 0;
-}
-.subheading {
+} */
+/* .subheading {
 	font-size: 1.25em;
 	font-weight: 600;
 	margin-bottom: 0.5em;
+} */
+#one {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 2em;
+	width: 80%;
+	max-width: 400px;
+	height: 200px;
+	background: linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%);
+	border-radius: 1rem;
+}
+#two {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 2em;
+	width: 80%;
+	max-width: 400px;
+	height: 100%;
+	max-height: 400px;
+	/* background: linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%);
+	border-radius: 1rem; */
 }
