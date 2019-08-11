@@ -29,6 +29,7 @@ import files from '../images/files.svg';
 import alphabet from '../images/alphabet.svg';
 import patternPalette from '../images/pattern-palette.svg';
 import TweetCard from '../components/TweetCard';
+import TweetCards from '../components/TweetCards';
 const LandingPage = () => {
 	const data = useStaticQuery(
 		graphql`
@@ -481,64 +482,7 @@ const LandingPage = () => {
 							</SectionSubtitle>
 						</div>
 
-						<div style={{ position: 'relative' }}>
-							<div
-								style={{
-									width: '100%',
-									height: '15px',
-									background: 'red',
-									position: 'absolute',
-									top: '0',
-									zIndex: '2',
-									background: 'linear-gradient(rgb(20,22,25),rgba(0,0,0,0))'
-								}}
-							/>
-							<div
-								style={{
-									padding: '1rem 0',
-									margin: '0 auto',
-									width: '100%',
-									maxWidth: '800px',
-									height: '700px',
-									overflowY: 'scroll',
-									display: 'grid',
-									gridTemplateColumns: '1fr 1fr',
-									justifyContent: 'flex-start',
-									alignItems: 'flex-start',
-									gridGap: '1rem',
-									position: 'relative'
-								}}
-							>
-								<div style={{ display: 'flex', flexDirection: 'column' }}>
-									<TweetCard
-										tweet={`ShowTrackr is a real gem! I started using it a couple months ago and it completely changed the way how I watch TV shows. I can only recommend it!`}
-									/>
-									<GridItem style={{ height: '100px' }} />
-									<GridItem style={{ height: '120px' }} />
-									<GridItem style={{ height: '150px' }} />
-								</div>
-								<div style={{ display: 'flex', flexDirection: 'column' }}>
-									<GridItem style={{ height: '90px' }} />
-									<GridItem style={{ height: '150px' }} />
-									<GridItem style={{ height: '150px' }} />
-									<GridItem style={{ height: '150px' }} />
-									<GridItem style={{ height: '100px' }} />
-									<GridItem style={{ height: '120px' }} />
-									<GridItem style={{ height: '150px' }} />
-								</div>
-							</div>
-							<div
-								style={{
-									width: '100%',
-									height: '15px',
-									background: 'red',
-									position: 'absolute',
-									bottom: '0',
-									zIndex: '2',
-									background: 'linear-gradient(rgba(0,0,0,0),rgb(20,22,25))'
-								}}
-							/>
-						</div>
+						<TweetCards/>
 					</div>
 				</SectionContainer>
 			</Section>

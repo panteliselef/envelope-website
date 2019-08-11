@@ -117,3 +117,10 @@ figure > img {
 	/* background: linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%);
 	border-radius: 1rem; */
 }
+
+
+.canvas-wrapper {
+	width: 100%;
+	height: 100%;
+	background:inherit;
+}

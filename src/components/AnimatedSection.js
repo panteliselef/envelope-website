@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import one from '../images/one.jpg';
+import Particles from 'react-particles-js';
+
 const AnimatedSection = () => {
 	useEffect(() => {
 		if (typeof window !== `undefined`) {
@@ -32,7 +34,7 @@ const AnimatedSection = () => {
 		background: linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		line-height:1.2;
+		line-height: 1.2;
 	`;
 
 	return (
@@ -46,7 +48,63 @@ const AnimatedSection = () => {
 		>
 			<figure>
 				{/* <img src={bgImage} /> */}
-				<div style={{ width: '100%', height: '100vh', background: '#141618' }} />
+				<div style={{ width: '100%', height: '100vh', background: '#141618',position:'relative'}}>
+					<Particles
+					className='canvas-wrapper'
+					 style={{width: '100%', height: '100vh'}}
+						params={{
+							particles: {
+								number: {
+									value: 160,
+									density: {
+										enable: false
+									}
+								},
+								size: {
+									value: 3,
+									random: true,
+									anim: {
+										speed: 4,
+										size_min: 0.3
+									}
+								},
+								line_linked: {
+									enable: false
+								},
+								move: {
+									random: true,
+									speed: 1,
+									direction: 'top',
+									out_mode: 'out'
+								}
+							},
+							interactivity: {
+								events: {
+									onhover: {
+										enable: true,
+										mode: 'bubble'
+									},
+									onclick: {
+										enable: true,
+										mode: 'repulse'
+									}
+								},
+								modes: {
+									bubble: {
+										distance: 250,
+										duration: 2,
+										size: 0,
+										opacity: 0
+									},
+									repulse: {
+										distance: 400,
+										duration: 4
+									}
+								}
+							}
+						}}
+					/>
+				</div>
 			</figure>
 			<div className="content">
 				<div style={{ width: '100%', height: '100vh' }} />
@@ -92,14 +150,14 @@ const AnimatedSection = () => {
 									fontSize: '1rem',
 									gridTemplateColumns: '.5fr 1fr',
 									gridColumnGap: '1rem',
-									alignItems:'center',
-									margin:'1rem 0'
+									alignItems: 'center',
+									margin: '1rem 0'
 								}}
 							>
 								<div
 									style={{
 										justifySelf: 'flex-end',
-										fontWeight: '600',
+										fontWeight: '600'
 									}}
 								>
 									Ave Theme
@@ -107,14 +165,13 @@ const AnimatedSection = () => {
 								<div
 									style={{
 										width: '100%',
-										height:'1.5rem',
-										background: 'linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%)',
-										borderRadius:'.2rem'
+										height: '1.5rem',
+										background:
+											'linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%)',
+										borderRadius: '.2rem'
 									}}
 								/>
 							</div>
-
-
 
 							<div
 								style={{
@@ -122,15 +179,15 @@ const AnimatedSection = () => {
 									fontSize: '1rem',
 									gridTemplateColumns: '.5fr 1fr',
 									gridColumnGap: '1rem',
-									alignItems:'center',
-									margin:'1rem 0'
+									alignItems: 'center',
+									margin: '1rem 0'
 								}}
 							>
 								<div
 									style={{
 										justifySelf: 'flex-end',
 										fontWeight: '600',
-										color:'rgba(255,255,255,.5)',
+										color: 'rgba(255,255,255,.5)'
 									}}
 								>
 									Other Theme
@@ -138,9 +195,9 @@ const AnimatedSection = () => {
 								<div
 									style={{
 										width: '50%',
-										height:'1.5rem',
+										height: '1.5rem',
 										backgroundColor: 'rgb(64, 69, 74)',
-										borderRadius:'.2rem'
+										borderRadius: '.2rem'
 									}}
 								/>
 							</div>

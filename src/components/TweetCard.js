@@ -26,7 +26,7 @@ const TwitterCardDate = styled.p`
   color: #929394;
 `;
 
-const TweetCard = ({ tweet }) => {
+const TweetCard = ({ tweet, thumb, name }) => {
   const date = `Jan 18, 2018`;
 	return (
 		<TwitterCard>
@@ -36,7 +36,7 @@ const TweetCard = ({ tweet }) => {
           alignItems:'center',
         }}>
 					<img
-						src={imagePlaceholder}
+						src={thumb || imagePlaceholder}
 						style={{
 							borderRadius: '50%',
 							width: '3rem',
@@ -44,7 +44,7 @@ const TweetCard = ({ tweet }) => {
               marginRight:'1rem'
 						}}
 					/>
-          <p>Pantelis Elef</p>
+          <p>{name || `Pantelis Elef`}</p>
 				</div>
         <div>
           <img src={twitter} style={{
