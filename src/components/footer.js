@@ -53,7 +53,7 @@ const Footer = () => {
 				2019 ENVELOPE
 			</p>
 
-			<p style={{color:"#fff",textAlign:'center',maxWidth:'700px',margin:'2rem auto',lineHeight:'1.5'}}>
+			<p style={{color:"#fff",textAlign:'center',width:'90%',maxWidth:'700px',margin:'2rem auto',lineHeight:'1.5'}}>
 				All materials and brands are property of their respective owners.<br />
 				All company, product and service names used in this website are for identification purposes only.
 			</p>

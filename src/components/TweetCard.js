@@ -11,12 +11,12 @@ const TwitterCard = styled.div`
 	width: 100%;
 	min-height: 100px;
 	height: auto;
-	border-radius: .8rem;
+	border-radius: .5rem;
 `;
 
 const TwitterCardTweet = styled.p`
 	margin: 1rem 1rem 70px 1rem;
-	font-size: 1rem;
+	font-size: .9rem;
 	line-height: 1.4;
 `;
 
@@ -48,8 +48,8 @@ const TweetCard = ({ tweet, thumb, name }) => {
 				</div>
         <div>
           <img src={twitter} style={{
-            width:'2rem',
-            height:'2rem',
+            width:'1.5rem',
+            height:'1.5rem',
           }}></img>
         </div>
 			</div>

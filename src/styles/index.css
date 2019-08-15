@@ -69,12 +69,38 @@ figure > img {
 	height: 100%;
 	display: grid;
 	grid-template-rows: 1fr 1fr;
+	/* max-width: 1280px; */
+	/* margin-left: 50%; */
+	/* left: -640px; */
 	color: white;
 	padding: 2em;
 	font-size: 2.5vmin;
 }
 .content * {
 	text-shadow: 0 0 4vmin rgba(0, 0, 0, 0.25);
+}
+
+.content .content-grid{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+.content .content-grid-fancy{
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+	height: 100%;
+}
+@media screen and (max-width: 768px){
+	.content .content-grid{
+		display: flex;
+		flex-direction: column;
+	}
+	.content .content-grid-fancy #two {
+		margin: auto;
+		margin-top: 3rem;
+	}
 }
 .header {
 

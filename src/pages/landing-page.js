@@ -2,7 +2,20 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import '../styles/index.css';
 import TopSectionFullHeight from '../components/top-section-full-height';
-import { Section, SectionContainer, SectionTitle, SectionSubtitle } from '../components/myStyledComponents';
+import {
+	Section,
+	SectionContainer,
+	SectionTitle,
+	SectionSpecialTitle,
+	SectionSpecialContainer,
+	SectionSpecialSubtitle,
+	SectionSubtitle,
+	SectionSpecialImg,
+	SectionContainerTwo,
+	SectionContainerTwoImg,
+	RoundedBoxContainer,
+	RoundedBoxGrid
+} from '../components/myStyledComponents';
 import workAtHome from '../images/ill-work-at-home.svg';
 import map from '../images/ill-map.svg';
 import coupleTravel from '../images/ill-couple-travel.svg';
@@ -50,7 +63,11 @@ const LandingPage = () => {
 		width: 100%;
 		justify-content: space-between;
 		align-items: center;
+		flex-direction: column-reverse;
 		margin: 2rem 0;
+		@media (min-width: 768px) {
+			flex-direction: row;
+		}
 	`;
 
 	const EvelopeFeatureReverse = styled.div`
@@ -58,21 +75,49 @@ const LandingPage = () => {
 		width: 100%;
 		justify-content: space-between;
 		align-items: center;
-		flex-direction: row-reverse;
 		margin: 2rem 0;
+		flex-direction: column-reverse;
+		@media (min-width: 768px) {
+			flex-direction: row-reverse;
+		}
 	`;
 
 	const EvelopeFeatureText = styled.div`
-		max-width: 300px;
-		line-height: 1.5;
+		max-width: 400px;
+		width: 90%;
+		line-height: 1.6;
+		text-align: center;
+		@media (min-width: 768px) {
+			width: 100%;
+			max-width: 300px;
+			text-align: left;
+			line-height: 1.5;
+		}
 	`;
 
-	const EvelopeFeatureTitle = styled.span`font-size: 1.5rem;`;
+	const EvelopeFeatureTitle = styled.span`
+		font-size: 1.5rem;
+		text-align: center;
+		width: 100%;
+		display: block;
+		margin-bottom: 1rem;
+		font-weight: 700;
+		@media (min-width: 768px) {
+			text-align: left;
+		}
+	`;
 
 	const EvelopeFeatureImage = styled.img`
 		width: 100%;
-		max-width: 300px;
-		height: 100%;
+		max-width: 200px;
+		margin-bottom: 1rem;
+		@media (min-width: 768px) {
+			max-width: unset;
+			margin-bottom: unset;
+			width: 100%;
+			height: 100%;
+			max-width: 300px;
+		}
 	`;
 
 	const GridItem = styled.div`
@@ -107,23 +152,31 @@ const LandingPage = () => {
 		text-align: center;
 		text-transform: capitalize;
 		left: 0;
+		font-size: .8rem;
 		font-weight: 600;
 		letter-spacing: .5px;
+		@media (min-width: 768px) {
+			font-size: 1rem;
+		}
 	`;
 
 	// DUPLICATE
 	const Heading = styled.h2`
-		font-size: 3.3rem;
+		font-size: 2rem;
 		margin: 0;
 		background: linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		line-height: 1.2;
+		fontWeight: 900;
+		@media (min-width: 768px) {
+			font-size: 3.3rem;
+		}
 	`;
 
 	const SubHeading = styled.div`
 		font-size: 1.1rem;
-		font-weight: 600;
+		font-weight: 700;
 		margin-bottom: 0.5em;
 		letter-spacing: 1px;
 		color: #ccc;
@@ -151,8 +204,6 @@ const LandingPage = () => {
 						<EvelopeFeature>
 							<EvelopeFeatureText>
 								<EvelopeFeatureTitle>Branding tailored to your needs.</EvelopeFeatureTitle>
-								<br />
-								<br />
 								Every real estate agent requires a lot of attention in order to stand out from the rest.
 								With our dedicated team of professionals you can rely on reciving a custom product that
 								fits perfectly to your needs.
@@ -163,8 +214,6 @@ const LandingPage = () => {
 						<EvelopeFeatureReverse>
 							<EvelopeFeatureText>
 								<EvelopeFeatureTitle>Branding focused for phones.</EvelopeFeatureTitle>
-								<br />
-								<br />
 								In the modern age following the latest trends is key. Currently 80% of visitors come
 								from mobile devices. That’s why we are here to make sure that your first apperience is
 								impacable.
@@ -175,8 +224,6 @@ const LandingPage = () => {
 						<EvelopeFeature>
 							<EvelopeFeatureText>
 								<EvelopeFeatureTitle>We do everything for you.</EvelopeFeatureTitle>
-								<br />
-								<br />
 								Our job is to make your stressful and never ending days a breeze. Every bit of your
 								online presence is on our backs in order for you to focus on what matters most.
 							</EvelopeFeatureText>
@@ -186,8 +233,6 @@ const LandingPage = () => {
 						<EvelopeFeatureReverse>
 							<EvelopeFeatureText>
 								<EvelopeFeatureTitle>Extremly low fees.</EvelopeFeatureTitle>
-								<br />
-								<br />
 								Branding of any sorts can be quite expensive but in this situation we made our service
 								extremly cost effective in order for you to be able to scale faster and smarter.
 							</EvelopeFeatureText>
@@ -198,136 +243,76 @@ const LandingPage = () => {
 			</Section>
 
 			<Section>
-				<SectionContainer style={{ flexDirection: 'row' }}>
-					<div
-						style={{
-							width: '90%',
-							maxWidth: '1280px',
-							display: 'flex',
-							margin: '0 auto'
-						}}
-					>
-						<div
-							style={{
-								width: '100%',
-								justifyContent: 'center',
-								display: 'flex',
-								flexDirection: 'column',
-								alignItems: 'flex-start'
-							}}
-						>
-							<SectionTitle
-								style={{ textAlign: 'left', lineHeight: '1.3', maxWidth: '300px', margin: '0' }}
-							>
-								See your success through your customers' eyes.
-							</SectionTitle>
-							<SectionSubtitle style={{ textAlign: 'left', maxWidth: '400px' }}>
-								Whether you're running an in-person user interview or a remote usability test, you’ll be
-								able to capture and view every tap, click, comment and reaction on your prototype just
-								by sharing a link.
-							</SectionSubtitle>
-						</div>
-						<img
-							src={iPhone}
-							style={{
-								height: '100%',
-								maxHeight: '600px'
-							}}
-						/>
-					</div>
-				</SectionContainer>
-			</Section>
-			<Section>
-				<SectionContainer style={{ flexDirection: 'row' }}>
+				<SectionSpecialContainer>
 					<div
 						style={{
 							width: '100%',
-							maxWidth: '1280px',
+							justifyContent: 'center',
 							display: 'flex',
-							flexDirection: 'row-reverse',
-							margin: '0 auto',
-							width: '90%'
+							flexDirection: 'column',
+							alignItems: 'flex-start'
 						}}
 					>
-						<div
-							style={{
-								width: '100%',
-								justifyContent: 'center',
-								display: 'flex',
-								flexDirection: 'column',
-								alignItems: 'flex-end'
-							}}
-						>
-							<SectionTitle
-								style={{ textAlign: 'right', lineHeight: '1.3', maxWidth: '300px', margin: '0' }}
-							>
-								Differenciate yourself with power of video.
-							</SectionTitle>
-							<SectionSubtitle style={{ textAlign: 'right', maxWidth: '400px' }}>
-								Whether you're running an in-person user interview or a remote usability test, you’ll be
-								able to capture and view every tap, click, comment and reaction on your prototype just
-								by sharing a link.
-							</SectionSubtitle>
-						</div>
-						<img
-							src={seo}
-							style={{
-								height: '100%',
-								maxHeight: '600px'
-							}}
-						/>
+						<SectionSpecialTitle>See your success through your customers' eyes.</SectionSpecialTitle>
+						<SectionSpecialSubtitle>
+							Whether you're running an in-person user interview or a remote usability test, you’ll be
+							able to capture and view every tap, click, comment and reaction on your prototype just by
+							sharing a link.
+						</SectionSpecialSubtitle>
 					</div>
-				</SectionContainer>
+
+					<SectionSpecialImg src={iPhone} />
+				</SectionSpecialContainer>
+			</Section>
+			<Section>
+				<SectionSpecialContainer direction={`row-reverse`}>
+					<div
+						style={{
+							width: '100%',
+							justifyContent: 'center',
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'flex-end'
+						}}
+					>
+						<SectionSpecialTitle textAlign={`right`}>
+							Differenciate yourself with power of video.
+						</SectionSpecialTitle>
+						<SectionSpecialSubtitle textAlign={`right`}>
+							Whether you're running an in-person user interview or a remote usability test, you’ll be
+							able to capture and view every tap, click, comment and reaction on your prototype just by
+							sharing a link.
+						</SectionSpecialSubtitle>
+					</div>
+					<SectionSpecialImg src={seo} />
+				</SectionSpecialContainer>
 			</Section>
 
 			<AnimatedSection />
 
 			<Section style={{ background: 'rgb(20,22,25)', color: '#fff' }}>
-				<SectionContainer>
+				<SectionContainerTwo>
+					<SectionContainerTwoImg src={iphoneMockup} />
+
 					<div
 						style={{
-							width: '100%',
-							maxWidth: '1280px',
+							margin: '0 3rem',
+							justifyContent: 'center',
 							display: 'flex',
-							justifyContent: 'space-around',
-							flexDirection: 'row',
-							margin: '0 auto',
-							width: '90%'
+							flexDirection: 'column',
+							alignItems: 'flex-start'
 						}}
 					>
-						<div
-							style={{
-								maxWidth: '400px'
-							}}
-						>
-							<img
-								src={iphoneMockup}
-								style={{
-									width: '100%'
-								}}
-							/>
-						</div>
-
-						<div
-							style={{
-								margin: '0 3rem',
-								justifyContent: 'center',
-								display: 'flex',
-								flexDirection: 'column',
-								alignItems: 'flex-start'
-							}}
-						>
-							<SubHeading>Look amazing on the device</SubHeading>
-							<Heading style={{ maxWidth: '700px' }}>
-								Ave automatically detects the screen size and adjust the content accordingly to provide
-								full responsive and optimized sites
-							</Heading>
-						</div>
+						<SubHeading>Look amazing on the device</SubHeading>
+						<Heading style={{ maxWidth: '700px' }}>
+							Ave automatically detects the screen size and adjust the content accordingly to provide full
+							responsive and optimized sites
+						</Heading>
 					</div>
-				</SectionContainer>
+				</SectionContainerTwo>
 			</Section>
 
-			<Section style={{ backgroundColor: 'rgb(20,22,25)' }}>
+			<Section style={{ backgroundColor: 'rgb(20,22,25)', overflowX: 'hidden' }}>
 				<SectionContainer>
 					<div
 						style={{
@@ -335,7 +320,9 @@ const LandingPage = () => {
 							width: '90%',
 							maxWidth: '1280px',
 							justifyContent: 'space-between',
-							alignItems: 'center'
+							// alignItems: 'center',
+							alignItems: 'flex-end'
+							// flexDirection: 'column'
 						}}
 					>
 						<div>
@@ -349,29 +336,15 @@ const LandingPage = () => {
 							</SectionSubtitle>
 						</div>
 
-						<div
-							style={{
-								overflow: '',
-								marginRight: '100px',
-								position: 'relative'
-							}}
-						>
-							<div
-								style={{
-									display: 'grid',
-									gridTemplateColumns: '1fr 1fr',
-									gridTemplateRows: '200px 200px',
-									gridGap: '3.5rem 2rem',
-									width: '400px',
-									height: 'auto',
-									transform: 'rotate(-35deg)'
-								}}
-							>
+						<RoundedBoxContainer>
+							<RoundedBoxGrid>
 								<RoundedBox>
 									<RoundedBoxTitle color={`#E25AA3`}>Amazing desing</RoundedBoxTitle>
 									<img
 										src={pen}
 										style={{
+											width: '70%',
+											maxWidth: '110px',
 											transform: 'rotate(35deg)'
 										}}
 									/>
@@ -416,12 +389,14 @@ const LandingPage = () => {
 									<img
 										src={files}
 										style={{
+											width: '70%',
+											maxWidth: '110px',
 											transform: 'rotate(35deg)'
 										}}
 									/>
 								</RoundedBox>
-							</div>
-						</div>
+							</RoundedBoxGrid>
+						</RoundedBoxContainer>
 					</div>
 				</SectionContainer>
 			</Section>
@@ -454,8 +429,8 @@ const LandingPage = () => {
 						>
 							<source src={videoOgv} type="video/ogg" />
 							<source src={videoMp4} type="video/mp4" />
-							{/* <source src="movie.ogg" type="video/ogg" /> */}
-							{/* Your browser does not support the video tag. */}
+							<source src="movie.ogg" type="video/ogg" />
+							Your browser does not support the video tag.
 						</video>
 					</div>
 				</SectionContainer>
@@ -482,7 +457,7 @@ const LandingPage = () => {
 							</SectionSubtitle>
 						</div>
 
-						<TweetCards/>
+						{/* <TweetCards/> */}
 					</div>
 				</SectionContainer>
 			</Section>
@@ -508,7 +483,7 @@ const LandingPage = () => {
 							margin: '2rem 0',
 							color: '#fff',
 							textDecoration: 'none',
-							textTransform:'uppercase'
+							textTransform: 'uppercase'
 						}}
 					>
 						Contact us
@@ -518,7 +493,9 @@ const LandingPage = () => {
 						style={{
 							color: '#adadad',
 							fontSize: '1.4rem',
-							margin: '4rem 0'
+							margin: '4rem auto',
+							width: '90%',
+							textAlign: 'center'
 						}}
 					>
 						Evelope is used by 35+ real esate agents and loan officers
@@ -527,15 +504,15 @@ const LandingPage = () => {
 						style={{
 							display: 'flex',
 							justifyContent: 'space-evenly',
-							flexWrap:'wrap',
+							flexWrap: 'wrap',
 							width: '100%',
 							maxWidth: '800px'
 						}}
 					>
-						<img src={sothebys} style={{margin:'1rem'}} />
-						<img src={coldwell} style={{margin:'1rem'}}/>
-						<img src={remax} style={{margin:'1rem'}}/>
-						<img src={keller} style={{margin:'1rem'}}/>
+						<img src={sothebys} style={{ margin: '1rem' }} />
+						<img src={coldwell} style={{ margin: '1rem' }} />
+						<img src={remax} style={{ margin: '1rem' }} />
+						<img src={keller} style={{ margin: '1rem' }} />
 					</div>
 				</SectionContainer>
 			</Section>

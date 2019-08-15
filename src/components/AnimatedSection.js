@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import {SectionContainer} from '../components/myStyledComponents'
 import one from '../images/one.jpg';
 import Particles from 'react-particles-js';
 
@@ -21,6 +22,15 @@ const AnimatedSection = () => {
 		}
 	}, []);
 
+	const Recording = styled.div`
+		display: grid;
+		font-size: 1rem;
+		grid-template-columns: .5fr 1fr;
+		grid-column-gap: 1rem;
+		align-items: center;
+		margin: 1rem 0;
+	`;
+
 	const SubHeading = styled.div`
 		font-size: 1.1rem;
 		font-weight: 600;
@@ -29,12 +39,15 @@ const AnimatedSection = () => {
 		color: #ccc;
 	`;
 	const Heading = styled.h2`
-		font-size: 3.3rem;
+		font-size: 2rem;
 		margin: 0;
 		background: linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		line-height: 1.2;
+		@media (min-width: 768px){
+font-size: 3.3rem;
+		}
 	`;
 
 	return (
@@ -46,12 +59,16 @@ const AnimatedSection = () => {
 				position: 'relative'
 			}}
 		>
+			<SectionContainer style={{
+				height:'inherit'
+			}}>
+
 			<figure>
 				{/* <img src={bgImage} /> */}
-				<div style={{ width: '100%', height: '100vh', background: '#141618',position:'relative'}}>
+				<div style={{ width: '100%', height: '100vh', background: '#141618', position: 'relative' }}>
 					<Particles
-					className='canvas-wrapper'
-					 style={{width: '100%', height: '100vh'}}
+						className="canvas-wrapper"
+						style={{ width: '100%', height: '100vh' }}
 						params={{
 							particles: {
 								number: {
@@ -108,7 +125,7 @@ const AnimatedSection = () => {
 			</figure>
 			<div className="content">
 				<div style={{ width: '100%', height: '100vh' }} />
-				<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+				<div className={`content-grid`}>
 					<header className="header">
 						{/* <div className="subheading">All-Old Techniques</div> */}
 						<SubHeading>The fastest theme ever built.</SubHeading>
@@ -117,7 +134,7 @@ const AnimatedSection = () => {
 							and adaptive content deliver the maximum performance.
 						</Heading>
 					</header>
-					<div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end' }}>
+					<div className={`content-grid-fancy`}>
 						<div id="two">
 							<div
 								style={{
@@ -144,16 +161,7 @@ const AnimatedSection = () => {
 								<div>According to GTmetrix</div>
 								<div>2x faster</div>
 							</div>
-							<div
-								style={{
-									display: 'grid',
-									fontSize: '1rem',
-									gridTemplateColumns: '.5fr 1fr',
-									gridColumnGap: '1rem',
-									alignItems: 'center',
-									margin: '1rem 0'
-								}}
-							>
+							<Recording>
 								<div
 									style={{
 										justifySelf: 'flex-end',
@@ -171,18 +179,9 @@ const AnimatedSection = () => {
 										borderRadius: '.2rem'
 									}}
 								/>
-							</div>
+							</Recording>
 
-							<div
-								style={{
-									display: 'grid',
-									fontSize: '1rem',
-									gridTemplateColumns: '.5fr 1fr',
-									gridColumnGap: '1rem',
-									alignItems: 'center',
-									margin: '1rem 0'
-								}}
-							>
+							<Recording>
 								<div
 									style={{
 										justifySelf: 'flex-end',
@@ -200,11 +199,52 @@ const AnimatedSection = () => {
 										borderRadius: '.2rem'
 									}}
 								/>
-							</div>
+							</Recording>
+
+							<Recording style={{marginTop:"3rem"}}>
+								<div
+									style={{
+										justifySelf: 'flex-end',
+										fontWeight: '600'
+									}}
+								>
+									Envelope Theme
+								</div>
+								<div
+									style={{
+										width: '80%',
+										height: '1.5rem',
+										background:
+											'linear-gradient(109.6deg, rgba(116, 255, 217, 1) 11.2%, rgba(88, 200, 223, 1) 91.1%)',
+										borderRadius: '.2rem'
+									}}
+								/>
+							</Recording>
+
+							<Recording>
+								<div
+									style={{
+										justifySelf: 'flex-end',
+										fontWeight: '600',
+										color: 'rgba(255,255,255,.5)'
+									}}
+								>
+									Wordpress Theme
+								</div>
+								<div
+									style={{
+										width: '40%',
+										height: '1.5rem',
+										backgroundColor: 'rgb(64, 69, 74)',
+										borderRadius: '.2rem'
+									}}
+								/>
+							</Recording>
 						</div>
 					</div>
 				</div>
 			</div>
+			</SectionContainer>
 		</section>
 	);
 };

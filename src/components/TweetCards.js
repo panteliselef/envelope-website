@@ -26,7 +26,7 @@ const TweetCards = () => {
 					padding: '1rem 0',
 					margin: '0 auto',
 					width: '100%',
-					maxWidth: '800px',
+					maxWidth: '700px',
 					height: '700px',
 					overflowY: 'scroll',
 					display: 'grid',
